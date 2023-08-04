@@ -38,12 +38,13 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent =
         document.querySelector('.score').textContent;
     }
-  } else if (guess > value) {
-    document.querySelector('.message').textContent = 'Too high';
+  } else if (score > 1) {
     document.querySelector('.score').textContent--;
-  } else if (guess < value) {
-    document.querySelector('.score').textContent--;
-    document.querySelector('.message').textContent = 'Too low';
+    document.querySelector('.message').textContent =
+      guess > value ? 'Too high' : 'Too low';
+  } else {
+    document.querySelector('.message').textContent = 'You lost the game';
+    document.querySelector('.score').textContent = 0;
   }
 });
 
